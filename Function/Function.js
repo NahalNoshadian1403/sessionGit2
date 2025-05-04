@@ -44,9 +44,8 @@ function mergeObjects(obj1, obj2) {
     }
     return obj1;
 }
-
 // فراخوانی تابع میانگین
-console.log(averageArray([10, 20, 30])); 
+console.log(averageArray([10, 20, 30]));
 
 // فراخوانی تابع بیشترین عدد
 console.log(findMax([3, 9, 1, 15, 7]));
@@ -62,3 +61,4 @@ console.log(invertObject(originalObj));
 const obj1 = { name: "Ali", age: 25 };
 const obj2 = { city: "Tehran", age: 30 };
 console.log(mergeObjects(obj1, obj2));
+
