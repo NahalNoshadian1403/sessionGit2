@@ -1,22 +1,17 @@
-import java.util.*;
-
-public class Main {
-
-    // تابع محاسبه میانگین آرایه
-    public static double average(int[] arr) {
-    if (arr.length == 0) return 0;
-    int sum = 0;
-    for (int num : arr) {
-    sum += num;
-}
-return (double) sum / arr.length;
+//  میانگین اعداد آرایه
+function averageArray(arr) {
+    let sum = 0;
+    for (let num of arr) {
+        sum += num;
+    }
+    return arr.length === 0 ? 0 : sum / arr.length;
 }
 
-// تابع یافتن بزرگ‌ترین
-public static int findMax(int[] arr) {
-    if (arr.length == 0) throw new IllegalArgumentException("آرایه خالی است");
-    int max = arr[0];
-    for (int num : arr) {
+//  پیدا کردن بزرگ‌ترین عدد
+function findMax(arr) {
+    if (arr.length === 0) return undefined;
+    let max = arr[0];
+    for (let num of arr) {
         if (num > max) {
             max = num;
         }
@@ -24,46 +19,46 @@ public static int findMax(int[] arr) {
     return max;
 }
 
-// تابع معکوس کردن رشته
-public static String reverseString(String str) {
-    StringBuilder reversed = new StringBuilder();
-    for (int i = str.length() - 1; i >= 0; i--) {
-        reversed.append(str.charAt(i));
+//  معکوس کردن رشته بدون
+function reverseString(str) {
+    let reversed = "";
+    for (let i = str.length - 1; i >= 0; i--) {
+        reversed += str[i];
     }
-    return reversed.toString();
+    return reversed;
 }
 
-// تابع جابجایی کلیدها و مقادیر آبجکت (Map)
-public static Map<String, String> swapKeysAndValues(Map<String, String> input) {
-    Map<String, String> swapped = new HashMap<>();
-    for (Map.Entry<String, String> entry : input.entrySet()) {
-        swapped.put(entry.getValue(), entry.getKey());
+//  جابه‌جایی کلیدها و مقادیر آبجکت
+function invertObject(obj) {
+    const result = {};
+    for (let key in obj) {
+        result[obj[key]] = key;
     }
-    return swapped;
+    return result;
 }
 
-// تابع ادغام دو آبجکت (Map)
-public static void mergeMaps(Map<String, String> map1, Map<String, String> map2) {
-    map1.putAll(map2); // ادغام map2 در map1
+//  ادغام ساده‌ی دو آبجکت
+function mergeObjects(obj1, obj2) {
+    for (let key in obj2) {
+        obj1[key] = obj2[key];
+    }
+    return obj1;
 }
 
+// فراخوانی تابع میانگین
+console.log(averageArray([10, 20, 30])); 
 
-public static void main(String[] args) {
-    int[] numbers = {3, 7, 2, 9, 5};
-    System.out.println("میانگین: " + average(numbers));
-    System.out.println("بزرگترین عدد: " + findMax(numbers));
-    System.out.println("معکوس رشته: " + reverseString("سلام"));
+// فراخوانی تابع بیشترین عدد
+console.log(findMax([3, 9, 1, 15, 7]));
 
-    Map<String, String> map = new HashMap<>();
-    map.put("name", "Ali");
-    map.put("city", "Tehran");
-    System.out.println("جابجایی کلید و مقدار: " + swapKeysAndValues(map));
+// فراخوانی تابع معکوس رشته
+console.log(reverseString("salam"));
 
-    Map<String, String> mapA = new HashMap<>();
-    mapA.put("a", "1");
-    Map<String, String> mapB = new HashMap<>();
-    mapB.put("b", "2");
-    mergeMaps(mapA, mapB);
-    System.out.println("ادغام آبجکت‌ها: " + mapA);
-}
-}
+// فراخوانی تابع جابجایی کلید و مقدار
+const originalObj = { a: 1, b: 2, c: 3 };
+console.log(invertObject(originalObj));
+
+// فراخوانی تابع ادغام دو آبجکت
+const obj1 = { name: "Ali", age: 25 };
+const obj2 = { city: "Tehran", age: 30 };
+console.log(mergeObjects(obj1, obj2));
